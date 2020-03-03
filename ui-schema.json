@@ -1,0 +1,485 @@
+{
+	"type": "object",
+	"title": "Teads Configuration",
+	"required": [
+		"#auth",
+		"report_config",
+		"report_name"
+	],
+	"properties": {
+		"report_config": {
+			"type": "object",
+			"title": "Report Settings",
+			"description": "See https://teadsapi.docs.apiary.io for more information.",
+			"propertyOrder": 3,
+			"required": [
+				"filters",
+				"dimensions",
+				"metrics",
+				"emails",
+				"format"
+			],
+			"properties": {
+				"filters": {
+					"type": "object",
+					"title": "Filters",
+					"propertyOrder": 3,
+					"description": "Filters you want to include in the request. All filters, except for date are optional. For more info see https://teadsapi.docs.apiary.io/#reference/0/processing-report/processing-report.",
+					"required": [
+						"date",
+						"ads",
+						"adsources",
+						"advertisers",
+						"ad_sources",
+						"ad_status",
+						"browser",
+						"connection_buy_type",
+						"country",
+						"creatives",
+						"demand_source",
+						"device",
+						"formats",
+						"insertions",
+						"insertion_status",
+						"operating_system",
+						"packs",
+						"page",
+						"placements",
+						"placement_status",
+						"publishers",
+						"scenarios",
+						"tags",
+						"websites"
+					],
+					"properties": {
+						"date": {
+							"type": "object",
+                            "title": "date",
+                            "description": "Data before 2017 is not available. Maximum period is 1 year. Reports with a period greater than 3 months cannot use the hour dimension. Reports with the uv dimension and a period greater than 100 days must use the day dimension.",
+							"required": [
+								"start",
+								"end",
+								"timezone"
+							],
+							"properties": {
+								"start": {
+									"type": "string",
+									"title": "Start date and time",
+									"default": "",
+									"description": "Lower-bound timestamp (ISO8601 format, e.g. '2020-01-01T00:00:00+01:00')",
+									"propertyOrder": 1
+								},
+								"end": {
+									"type": "string",
+									"title": "End date and time",
+									"default": "",
+									"description": "Upper-bound timestamp (ISO8601 format, e.g. '2020-01-01T23:59:00+01:00')",
+									"propertyOrder": 2
+								},
+								"timezone": {
+									"enum": [
+										"UTC"
+									],
+									"type": "string",
+									"title": "Timezone",
+									"default": "UTC",
+									"propertyOrder": 3
+								}
+							}
+						},
+						"ads": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"adsources": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"advertisers": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"ad_sources": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"ad_status": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"browser": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"connection_buy_type": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"country": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+
+						"creatives": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"demand_source": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"device": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"formats": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"insertions": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"insertion_status": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"operating_system": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"packs": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"page": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"placements": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"placement_status": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"publishers": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"scenarios": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						},
+						"tags": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"websites": {
+							"type": "array",
+							"items": {
+								"type": "integer"
+							},
+							"default": []
+						}
+					}
+				},
+				"dimensions": {
+					"type": "array",
+					"items": {
+						"enum": [
+							"ad",
+							"ad_end",
+							"ad_is_moat",
+							"ad_is_test",
+							"ad_start",
+							"ad_type",
+							"ad_volume_event",
+							"ad_volume_value",
+							"adsource",
+							"advertiser",
+							"advertiser_name",
+							"agency",
+							"agency_name",
+							"browser",
+							"connection",
+							"connection_is_moat",
+							"connection_type",
+							"country",
+							"country_code",
+							"country_continent",
+							"creative",
+							"day",
+							"demand",
+							"demand_category",
+							"demand_id",
+							"demand_name",
+							"demand_rule",
+							"demand_rule_id",
+							"demand_rule_is_bluekai",
+							"demand_rule_is_emetriq",
+							"demand_rule_is_exelate",
+							"demand_rule_is_grapeshot",
+							"demand_rule_is_nuggad",
+							"demand_source",
+							"demand_start_mode",
+							"demand_type",
+							"device",
+							"format",
+							"format_creative_type",
+							"format_creative_type_family",
+							"format_position",
+							"format_size",
+							"hb_ad_unit_code",
+							"hb_provider",
+							"hour",
+							"insertion_budget",
+							"insertion_end_date",
+							"insertion_is_free",
+							"insertion_price_advertiser",
+							"insertion_price_advertiser_event",
+							"insertion_price_publisher",
+							"insertion_price_publisher_cpm",
+							"insertion_price_publisher_currency",
+							"insertion_price_publisher_event",
+							"insertion_start_date",
+							"insertion_type",
+							"insertion_volume_event",
+							"insertion_volume_value",
+							"month",
+							"operating_system",
+							"pack",
+							"page",
+							"placement",
+							"publisher",
+							"quarter",
+							"scenario",
+							"scenario_id",
+							"scenario_name",
+							"semester",
+							"studio_canvas",
+							"studio_creative_id",
+							"studio_segment",
+							"uv",
+							"website",
+							"website_domain",
+							"week",
+							"year"
+						],
+						"type": "string"
+					},
+					"minItems": 1,
+					"title": "Dimensions",
+					"description": "List of dimensions to query by. Note that some dimensions and metrics cannot be combined.",
+					"propertyOrder": 1
+				},
+				"metrics": {
+					"type": "array",
+					"items": {
+						"enum": [
+							"ad",
+							"adAvailable-success",
+							"adCall",
+							"adNotAvailable-blockedSite-doubleVerify",
+							"adNotAvailable-ivt-doubleVerify",
+							"adNotAvailable-ivt-tag",
+							"advertiser_billable_volume",
+							"callJS",
+							"click",
+							"Click-call-button",
+							"Click-replay",
+							"ClickTracking",
+							"Close",
+							"compatibility",
+							"complete",
+							"demand-rate",
+							"dsp_response_bid",
+							"dsp_response_declined",
+							"dsp_response_error",
+							"dsp_response_filtered",
+							"dsp_response-rate",
+							"emptyPage",
+							"Engage format interaction metrics",
+							"errorVast",
+							"exit-fullscreen",
+							"firstQuartile",
+							"focusOut",
+							"fullscreen",
+							"impression",
+							"income",
+							"incompatibility-browser type",
+							"incompatibility-context",
+							"incompatibility-format",
+							"incompatibility-video",
+							"incompatibility-x",
+							"integration-rate",
+							"midpoint",
+							"mute",
+							"noAd",
+							"noAd-badResponse",
+							"noAd-details",
+							"noAd-exitPage",
+							"noAd-networkError",
+							"noAd-notFilled",
+							"noAd-parseTimeout",
+							"noAd-serverError",
+							"noAd-settingsError",
+							"noAd-vastError",
+							"noAdCall",
+							"noSlot",
+							"noSlot-avoid",
+							"noSlot-BTF",
+							"noSlot-content",
+							"noSlot-details",
+							"noSlot-DOM",
+							"noSlot-filter",
+							"noSlot-minimum",
+							"noSlot-minimumBelow",
+							"noSlot-MinSlot",
+							"noSlot-position",
+							"noSlot-selector",
+							"noSlot-size",
+							"open",
+							"open-x",
+							"pageAvailable",
+							"pageCall",
+							"passback",
+							"passback-integration",
+							"passback-noAd",
+							"pause",
+							"placementCall",
+							"placementCapping",
+							"programmatic-delivery-rate",
+							"programmatic-error-rate",
+							"progress-x",
+							"publisher_billable_volume",
+							"publisher-perf-rate",
+							"Reporting metric",
+							"resume",
+							"scroll-rate",
+							"slot_available",
+							"slotAvailable",
+							"ssp_auction",
+							"ssp_auctionwon",
+							"ssp_bidrequest",
+							"ssp_timeout",
+							"ssp_win-rate",
+							"start",
+							"teads_billing",
+							"thirdQuartile",
+							"unmute",
+							"vastError",
+							"visible"
+						],
+						"type": "string"
+					},
+					"minItems": 1,
+					"title": "Metrics",
+					"description": "List of metrics to return. Note that some dimensions and metrics cannot be combined..",
+					"propertyOrder": 2
+				},
+				"emails": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"minItems": 0,
+					"default": [],
+					"title": "Emails",
+					"description": "Filter by email",
+					"propertyOrder": 4
+				},
+				"format": {
+					"enum": [
+						"csv"
+					],
+					"type": "string",
+					"title": "Output format",
+					"default": "csv",
+					"description": "output format.",
+					"propertyOrder": 5
+				}
+			}
+		},
+		"report_name": {
+			"type": "string",
+			"title": "Report name",
+			"default": "teads",
+			"description": "Table name to be exported to storage",
+			"propertyOrder": 2
+		},
+		"#auth": {
+			"type": "string",
+			"title": "Token",
+			"description": "Paste the access token.",
+			"propertyOrder": 1
+		}
+	}
+}
