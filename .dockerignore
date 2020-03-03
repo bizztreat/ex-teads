@@ -1,5 +1,2 @@
-.vscode/
 vendor
 .git
-config.json
-venv/
