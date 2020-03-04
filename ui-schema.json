@@ -54,7 +54,8 @@
 					"properties": {
 						"date": {
 							"type": "object",
-                            "title": "date",
+							"title": "date",
+							"propertyOrder": 1,
                             "description": "Data before 2017 is not available. Maximum period is 1 year. Reports with a period greater than 3 months cannot use the hour dimension. Reports with the uv dimension and a period greater than 100 days must use the day dimension.",
 							"required": [
 								"start",
@@ -89,6 +90,7 @@
 						},
 						"ads": {
 							"type": "array",
+							"propertyOrder": 2,
 							"items": {
 								"type": "integer"
 							},
@@ -96,6 +98,7 @@
 						},
 						"adsources": {
 							"type": "array",
+							"propertyOrder": 3,
 							"items": {
 								"type": "integer"
 							},
@@ -103,6 +106,7 @@
 						},
 						"advertisers": {
 							"type": "array",
+							"propertyOrder": 4,
 							"items": {
 								"type": "integer"
 							},
@@ -110,6 +114,7 @@
 						},
 						"ad_sources": {
 							"type": "array",
+							"propertyOrder": 5,
 							"items": {
 								"type": "integer"
 							},
@@ -117,6 +122,7 @@
 						},
 						"ad_status": {
 							"type": "array",
+							"propertyOrder": 6,
 							"items": {
 								"type": "integer"
 							},
@@ -124,6 +130,7 @@
 						},
 						"browser": {
 							"type": "array",
+							"propertyOrder": 7,
 							"items": {
 								"type": "string"
 							},
@@ -131,6 +138,7 @@
 						},
 						"connection_buy_type": {
 							"type": "array",
+							"propertyOrder": 8,
 							"items": {
 								"type": "string"
 							},
@@ -138,6 +146,7 @@
 						},
 						"country": {
 							"type": "array",
+							"propertyOrder": 9,
 							"items": {
 								"type": "string"
 							},
@@ -146,6 +155,7 @@
 
 						"creatives": {
 							"type": "array",
+							"propertyOrder": 10,
 							"items": {
 								"type": "integer"
 							},
@@ -153,6 +163,7 @@
 						},
 						"demand_source": {
 							"type": "array",
+							"propertyOrder": 11,
 							"items": {
 								"type": "string"
 							},
@@ -160,6 +171,7 @@
 						},
 						"device": {
 							"type": "array",
+							"propertyOrder": 12,
 							"items": {
 								"type": "string"
 							},
@@ -167,6 +179,7 @@
 						},
 						"formats": {
 							"type": "array",
+							"propertyOrder": 13,
 							"items": {
 								"type": "string"
 							},
@@ -174,6 +187,7 @@
 						},
 						"insertions": {
 							"type": "array",
+							"propertyOrder": 14,
 							"items": {
 								"type": "integer"
 							},
@@ -181,6 +195,7 @@
 						},
 						"insertion_status": {
 							"type": "array",
+							"propertyOrder": 15,
 							"items": {
 								"type": "integer"
 							},
@@ -188,6 +203,7 @@
 						},
 						"operating_system": {
 							"type": "array",
+							"propertyOrder": 16,
 							"items": {
 								"type": "string"
 							},
@@ -195,6 +211,7 @@
 						},
 						"packs": {
 							"type": "array",
+							"propertyOrder": 17,
 							"items": {
 								"type": "integer"
 							},
@@ -202,6 +219,7 @@
 						},
 						"page": {
 							"type": "array",
+							"propertyOrder": 18,
 							"items": {
 								"type": "integer"
 							},
@@ -209,6 +227,7 @@
 						},
 						"placements": {
 							"type": "array",
+							"propertyOrder": 19,
 							"items": {
 								"type": "integer"
 							},
@@ -216,6 +235,7 @@
 						},
 						"placement_status": {
 							"type": "array",
+							"propertyOrder": 20,
 							"items": {
 								"type": "integer"
 							},
@@ -223,6 +243,7 @@
 						},
 						"publishers": {
 							"type": "array",
+							"propertyOrder": 21,
 							"items": {
 								"type": "integer"
 							},
@@ -230,6 +251,7 @@
 						},
 						"scenarios": {
 							"type": "array",
+							"propertyOrder": 22,
 							"items": {
 								"type": "integer"
 							},
@@ -237,6 +259,7 @@
 						},
 						"tags": {
 							"type": "array",
+							"propertyOrder": 23,
 							"items": {
 								"type": "string"
 							},
@@ -244,6 +267,7 @@
 						},
 						"websites": {
 							"type": "array",
+							"propertyOrder": 24,
 							"items": {
 								"type": "integer"
 							},
