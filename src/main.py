@@ -52,7 +52,7 @@ def main():
             "Configuration not specified, was expected at '{}'".format(config_path))
 
     with open(config_path, encoding="utf-8") as conf_file:
-        conf = json.load(conf_file)
+        conf = json.load(conf_file)["parameters"]
 
     # Request report id
     url_request_report = "https://api.teads.tv/v1/analytics/custom"

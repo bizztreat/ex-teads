@@ -1,47 +1,50 @@
-{"report_config" : {
-  "filters": {
-    "date": {
-      "start": "2020-01-01T00:00:00+01:00",
-      "end": "2020-02-24T23:59:00+01:00",
-      "timezone": "UTC"
-    },
-    "day": [],
-    "ads": [],
-    "adsources": [],
-    "advertisers": [],
-    "ad_sources": [],
-    "ad_status": [],
-    "browser": [],
-    "country": [],
-    "connection_buy_type": [],
-    "creatives": [],
-    "demand_source": [],
-    "device": [],
-    "formats": [],
-    "insertions": [],
-    "insertion_status": [],
-    "operating_system": [],
-    "packs": [],
-    "page": [],
-    "placements": [],
-    "placement_status": [],
-    "publishers": [],
-    "scenarios": [],
-    "tags": [],
-    "websites": []
-  },
-  "dimensions": [
-    "ad",
-    "country",
-    "creative"
-  ],
-  "metrics": [
-    "complete",
-    "impression"
-  ],
-  "emails": [],
-  "format": "csv"
-},
-"report_name": "teads",
-"auth": "------TOKEN------"
-}  
+{
+	"parameters": {
+		"report_config": {
+			"filters": {
+				"date": {
+					"start": "2020-01-01T00:00:00+01:00",
+					"end": "2020-02-24T23:59:00+01:00",
+					"timezone": "UTC"
+				},
+				"day": [],
+				"ads": [],
+				"adsources": [],
+				"advertisers": [],
+				"ad_sources": [],
+				"ad_status": [],
+				"browser": [],
+				"country": [],
+				"connection_buy_type": [],
+				"creatives": [],
+				"demand_source": [],
+				"device": [],
+				"formats": [],
+				"insertions": [],
+				"insertion_status": [],
+				"operating_system": [],
+				"packs": [],
+				"page": [],
+				"placements": [],
+				"placement_status": [],
+				"publishers": [],
+				"scenarios": [],
+				"tags": [],
+				"websites": []
+			},
+			"dimensions": [
+				"ad",
+				"country",
+				"creative"
+			],
+			"metrics": [
+				"complete",
+				"impression"
+			],
+			"emails": [],
+			"format": "csv"
+		},
+		"report_name": "teads",
+		"auth": "------TOKEN------"
+	}
+}
