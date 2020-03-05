@@ -23,6 +23,6 @@ Create or modify `config.json` file as described in `sample-config.json`.
 | #auth | string | Bearer token |
 | dimensions | list of strings | dimensions to query by |
 | metrics | list of strings | metrics to return |
-| filters | list of strings/dict | all the filters extept for date default to empty array |
+| filters | list of strings/dict | all the filters except for date default to empty array |
 | report_name | string | report name |
 | email | list | list of emails |
