@@ -14,7 +14,7 @@ Teads API token
 
 ## How to use it
 
-Create or modify `config.json` file. As described in `sample-config.json`.
+Create or modify `config.json` file as described in `sample-config.json`.
 
 ### Config explanation
 
