@@ -61,7 +61,7 @@ def main():
 
     headers = {
         "content-type": "application/json",
-        "authorization": "Bearer {}".format(conf["auth"])
+        "authorization": "Bearer {}".format(conf["#auth"])
         }
 
     session = requests.Session()
@@ -80,7 +80,7 @@ def main():
 
     # Request report
     url_get_report_uri = "{0}/{1}".format(url_request_report, report_request_id)
-    headers = {"authorization": "Bearer {}".format(conf["auth"])}
+    headers = {"authorization": "Bearer {}".format(conf["#auth"])}
 
     while True:
         response = session.get(url_get_report_uri, data="", headers=headers)
@@ -92,7 +92,7 @@ def main():
         sleep(s)
 
     if resp["status"]!="finished":
-        raise Exception("Report did not finish succesfully, report status:  %s", resp["status"])
+        raise Exception("Report did not finish succesfully, status: {0} \n{1}".format(resp["status"], resp["message"]))
 
     report_uri = resp["uri"]
     logger.info("Report status: %s \nReport uri: %s", resp["status"], report_uri)
