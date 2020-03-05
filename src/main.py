@@ -27,7 +27,7 @@ RESPONSE_BUFFER = 16*1024
 def main():
     """Main function to run extraction
     """
-    # Argumetn parser
+    # Argument parser
     argparser = ArgumentParser()
     argparser.add_argument("-f", "--config", action="store", default="../config.json",
                             help="Filename of the config JSON,\ndefault ../config.json")
