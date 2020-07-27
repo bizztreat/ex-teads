@@ -85,6 +85,13 @@
 									"title": "Timezone",
 									"default": "UTC",
 									"propertyOrder": 3
+								},
+								"interval": {
+									"type": "integer",
+									"title": "Interval (days since)",
+									"default": 0,
+									"description": "Set to 0 if you want to download fixed date range",
+									"propertyOrder": 4
 								}
 							}
 						},
