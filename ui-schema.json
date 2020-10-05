@@ -1,516 +1,945 @@
 {
-	"type": "object",
-	"title": "Teads Configuration",
-	"required": [
-		"#auth",
-		"report_config",
-		"report_name"
-	],
-	"properties": {
-		"report_config": {
-			"type": "object",
-			"title": "Report Settings",
-			"description": "See https://teadsapi.docs.apiary.io for more information.",
-			"propertyOrder": 3,
-			"required": [
-				"filters",
-				"dimensions",
-				"metrics",
-				"emails",
-				"format"
-			],
-			"properties": {
-				"filters": {
-					"type": "object",
-					"title": "Filters",
-					"propertyOrder": 3,
-					"description": "Filters you want to include in the request. All filters, except for date are optional. For more info see https://teadsapi.docs.apiary.io/#reference/0/processing-report/processing-report.",
-					"required": [
-						"date",
-						"ads",
-						"adsources",
-						"advertisers",
-						"ad_sources",
-						"ad_status",
-						"browser",
-						"connection_buy_type",
-						"country",
-						"creatives",
-						"demand_source",
-						"device",
-						"formats",
-						"insertions",
-						"insertion_status",
-						"operating_system",
-						"packs",
-						"page",
-						"placements",
-						"placement_status",
-						"publishers",
-						"scenarios",
-						"tags",
-						"websites"
-					],
-					"properties": {
-						"date": {
-							"type": "object",
-							"title": "date",
-							"propertyOrder": 1,
+    "type": "object",
+    "title": "Teads Configuration",
+    "required": ["#auth", "report_config", "report_name"],
+    "properties": {
+        "report_config": {
+            "type": "object",
+            "title": "Report Settings",
+            "description": "See https://teadsapi.docs.apiary.io for more information.",
+            "propertyOrder": 3,
+            "required": ["filters", "dimensions", "metrics", "emails", "format"],
+            "properties": {
+                "filters": {
+                    "type": "object",
+                    "title": "Filters",
+                    "propertyOrder": 3,
+                    "description": "Filters you want to include in the request. All filters, except for date are optional. For more info see https://teadsapi.docs.apiary.io/#reference/0/processing-report/processing-report.",
+                    "required": [
+                        "date",
+                        "ads",
+                        "adsources",
+                        "advertisers",
+                        "ad_sources",
+                        "ad_status",
+                        "browser",
+                        "connection_buy_type",
+                        "country",
+                        "creatives",
+                        "demand_source",
+                        "device",
+                        "formats",
+                        "insertions",
+                        "insertion_status",
+                        "operating_system",
+                        "packs",
+                        "page",
+                        "placements",
+                        "placement_status",
+                        "publishers",
+                        "scenarios",
+                        "tags",
+                        "websites"
+                    ],
+                    "properties": {
+                        "date": {
+                            "type": "object",
+                            "title": "date",
+                            "propertyOrder": 1,
                             "description": "Data before 2017 is not available. Maximum period is 1 year. Reports with a period greater than 3 months cannot use the hour dimension. Reports with the uv dimension and a period greater than 100 days must use the day dimension.",
-							"required": [
-								"start",
-								"end",
-								"timezone"
-							],
-							"properties": {
-								"start": {
-									"type": "string",
-									"title": "Start date and time",
-									"default": "",
-									"description": "Lower-bound timestamp (ISO8601 format, e.g. '2020-01-01T00:00:00+01:00')",
-									"propertyOrder": 1
-								},
-								"end": {
-									"type": "string",
-									"title": "End date and time",
-									"default": "",
-									"description": "Upper-bound timestamp (ISO8601 format, e.g. '2020-01-01T23:59:00+01:00')",
-									"propertyOrder": 2
-								},
-								"timezone": {
-									"enum": [
-										"UTC"
-									],
-									"type": "string",
-									"title": "Timezone",
-									"default": "UTC",
-									"propertyOrder": 3
-								},
-								"interval": {
-									"type": "integer",
-									"title": "Interval (days since)",
-									"default": 0,
-									"description": "Set to 0 if you want to download fixed date range",
-									"propertyOrder": 4
-								}
-							}
-						},
-						"ads": {
-							"type": "array",
-							"propertyOrder": 2,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"adsources": {
-							"type": "array",
-							"propertyOrder": 3,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"advertisers": {
-							"type": "array",
-							"propertyOrder": 4,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"ad_sources": {
-							"type": "array",
-							"propertyOrder": 5,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"ad_status": {
-							"type": "array",
-							"propertyOrder": 6,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"browser": {
-							"type": "array",
-							"propertyOrder": 7,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"connection_buy_type": {
-							"type": "array",
-							"propertyOrder": 8,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"country": {
-							"type": "array",
-							"propertyOrder": 9,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
+                            "required": ["start", "end", "timezone"],
+                            "properties": {
+                                "start": {
+                                    "type": "string",
+                                    "title": "Start date and time",
+                                    "default": "",
+                                    "description": "Lower-bound timestamp (ISO8601 format, e.g. '2020-01-01T00:00:00')",
+                                    "propertyOrder": 1
+                                },
+                                "end": {
+                                    "type": "string",
+                                    "title": "End date and time",
+                                    "default": "",
+                                    "description": "Upper-bound timestamp (ISO8601 format, e.g. '2020-01-01T23:59:00')",
+                                    "propertyOrder": 2
+                                },
+                                "timezone": {
+                                    "enum": [
+                                        "UTC",
+                                        "Europe/Prague",
+                                        "Europe/Andorra",
+                                        "Asia/Dubai",
+                                        "Asia/Kabul",
+                                        "America/Antigua",
+                                        "America/Anguilla",
+                                        "Europe/Tirane",
+                                        "Asia/Yerevan",
+                                        "Africa/Luanda",
+                                        "Antarctica/McMurdo",
+                                        "Antarctica/South_Pole",
+                                        "Antarctica/Rothera",
+                                        "Antarctica/Palmer",
+                                        "Antarctica/Mawson",
+                                        "Antarctica/Davis",
+                                        "Antarctica/Casey",
+                                        "Antarctica/Vostok",
+                                        "Antarctica/DumontDUrville",
+                                        "Antarctica/Syowa",
+                                        "America/Argentina/Buenos_Aires",
+                                        "America/Argentina/Cordoba",
+                                        "America/Argentina/Salta",
+                                        "America/Argentina/Jujuy",
+                                        "America/Argentina/Tucuman",
+                                        "America/Argentina/Catamarca",
+                                        "America/Argentina/La_Rioja",
+                                        "America/Argentina/San_Juan",
+                                        "America/Argentina/Mendoza",
+                                        "America/Argentina/San_Luis",
+                                        "America/Argentina/Rio_Gallegos",
+                                        "America/Argentina/Ushuaia",
+                                        "Pacific/Pago_Pago",
+                                        "Europe/Vienna",
+                                        "Australia/Lord_Howe",
+                                        "Antarctica/Macquarie",
+                                        "Australia/Hobart",
+                                        "Australia/Currie",
+                                        "Australia/Melbourne",
+                                        "Australia/Sydney",
+                                        "Australia/Broken_Hill",
+                                        "Australia/Brisbane",
+                                        "Australia/Lindeman",
+                                        "Australia/Adelaide",
+                                        "Australia/Darwin",
+                                        "Australia/Perth",
+                                        "Australia/Eucla",
+                                        "America/Aruba",
+                                        "Europe/Mariehamn",
+                                        "Asia/Baku",
+                                        "Europe/Sarajevo",
+                                        "America/Barbados",
+                                        "Asia/Dhaka",
+                                        "Europe/Brussels",
+                                        "Africa/Ouagadougou",
+                                        "Europe/Sofia",
+                                        "Asia/Bahrain",
+                                        "Africa/Bujumbura",
+                                        "Africa/Porto-Novo",
+                                        "America/St_Barthelemy",
+                                        "Atlantic/Bermuda",
+                                        "Asia/Brunei",
+                                        "America/La_Paz",
+                                        "America/Kralendijk",
+                                        "America/Noronha",
+                                        "America/Belem",
+                                        "America/Fortaleza",
+                                        "America/Recife",
+                                        "America/Araguaina",
+                                        "America/Maceio",
+                                        "America/Bahia",
+                                        "America/Sao_Paulo",
+                                        "America/Campo_Grande",
+                                        "America/Cuiaba",
+                                        "America/Santarem",
+                                        "America/Porto_Velho",
+                                        "America/Boa_Vista",
+                                        "America/Manaus",
+                                        "America/Eirunepe",
+                                        "America/Rio_Branco",
+                                        "America/Nassau",
+                                        "Asia/Thimphu",
+                                        "Africa/Gaborone",
+                                        "Europe/Minsk",
+                                        "America/Belize",
+                                        "America/St_Johns",
+                                        "America/Halifax",
+                                        "America/Glace_Bay",
+                                        "America/Moncton",
+                                        "America/Goose_Bay",
+                                        "America/Blanc-Sablon",
+                                        "America/Montreal",
+                                        "America/Toronto",
+                                        "America/Nipigon",
+                                        "America/Thunder_Bay",
+                                        "America/Iqaluit",
+                                        "America/Pangnirtung",
+                                        "America/Resolute",
+                                        "America/Atikokan",
+                                        "America/Rankin_Inlet",
+                                        "America/Winnipeg",
+                                        "America/Rainy_River",
+                                        "America/Regina",
+                                        "America/Swift_Current",
+                                        "America/Edmonton",
+                                        "America/Cambridge_Bay",
+                                        "America/Yellowknife",
+                                        "America/Inuvik",
+                                        "America/Creston",
+                                        "America/Dawson_Creek",
+                                        "America/Vancouver",
+                                        "America/Whitehorse",
+                                        "America/Dawson",
+                                        "Indian/Cocos",
+                                        "Africa/Kinshasa",
+                                        "Africa/Lubumbashi",
+                                        "Africa/Bangui",
+                                        "Africa/Brazzaville",
+                                        "Europe/Zurich",
+                                        "Africa/Abidjan",
+                                        "Pacific/Rarotonga",
+                                        "America/Santiago",
+                                        "Pacific/Easter",
+                                        "Africa/Douala",
+                                        "Asia/Shanghai",
+                                        "Asia/Harbin",
+                                        "Asia/Chongqing",
+                                        "Asia/Urumqi",
+                                        "Asia/Kashgar",
+                                        "America/Bogota",
+                                        "America/Costa_Rica",
+                                        "America/Havana",
+                                        "Atlantic/Cape_Verde",
+                                        "America/Curacao",
+                                        "Indian/Christmas",
+                                        "Asia/Nicosia",
+                                        "Europe/Berlin",
+                                        "Europe/Busingen",
+                                        "Africa/Djibouti",
+                                        "Europe/Copenhagen",
+                                        "America/Dominica",
+                                        "America/Santo_Domingo",
+                                        "Africa/Algiers",
+                                        "America/Guayaquil",
+                                        "Pacific/Galapagos",
+                                        "Europe/Tallinn",
+                                        "Africa/Cairo",
+                                        "Africa/El_Aaiun",
+                                        "Africa/Asmara",
+                                        "Europe/Madrid",
+                                        "Africa/Ceuta",
+                                        "Atlantic/Canary",
+                                        "Africa/Addis_Ababa",
+                                        "Europe/Helsinki",
+                                        "Pacific/Fiji",
+                                        "Atlantic/Stanley",
+                                        "Pacific/Chuuk",
+                                        "Pacific/Pohnpei",
+                                        "Pacific/Kosrae",
+                                        "Atlantic/Faroe",
+                                        "Europe/Paris",
+                                        "Africa/Libreville",
+                                        "Europe/London",
+                                        "America/Grenada",
+                                        "Asia/Tbilisi",
+                                        "America/Cayenne",
+                                        "Europe/Guernsey",
+                                        "Africa/Accra",
+                                        "Europe/Gibraltar",
+                                        "America/Godthab",
+                                        "America/Danmarkshavn",
+                                        "America/Scoresbysund",
+                                        "America/Thule",
+                                        "Africa/Banjul",
+                                        "Africa/Conakry",
+                                        "America/Guadeloupe",
+                                        "Africa/Malabo",
+                                        "Europe/Athens",
+                                        "Atlantic/South_Georgia",
+                                        "America/Guatemala",
+                                        "Pacific/Guam",
+                                        "Africa/Bissau",
+                                        "America/Guyana",
+                                        "Asia/Hong_Kong",
+                                        "America/Tegucigalpa",
+                                        "Europe/Zagreb",
+                                        "America/Port-au-Prince",
+                                        "Europe/Budapest",
+                                        "Asia/Jakarta",
+                                        "Asia/Pontianak",
+                                        "Asia/Makassar",
+                                        "Asia/Jayapura",
+                                        "Europe/Dublin",
+                                        "Asia/Jerusalem",
+                                        "Europe/Isle_of_Man",
+                                        "Asia/Kolkata",
+                                        "Indian/Chagos",
+                                        "Asia/Baghdad",
+                                        "Asia/Tehran",
+                                        "Atlantic/Reykjavik",
+                                        "Europe/Rome",
+                                        "Europe/Jersey",
+                                        "America/Jamaica",
+                                        "Asia/Amman",
+                                        "Asia/Tokyo",
+                                        "Africa/Nairobi",
+                                        "Asia/Bishkek",
+                                        "Asia/Phnom_Penh",
+                                        "Pacific/Tarawa",
+                                        "Pacific/Enderbury",
+                                        "Pacific/Kiritimati",
+                                        "Indian/Comoro",
+                                        "America/St_Kitts",
+                                        "Asia/Pyongyang",
+                                        "Asia/Seoul",
+                                        "Asia/Kuwait",
+                                        "America/Cayman",
+                                        "Asia/Almaty",
+                                        "Asia/Qyzylorda",
+                                        "Asia/Aqtobe",
+                                        "Asia/Aqtau",
+                                        "Asia/Oral",
+                                        "Asia/Vientiane",
+                                        "Asia/Beirut",
+                                        "America/St_Lucia",
+                                        "Europe/Vaduz",
+                                        "Asia/Colombo",
+                                        "Africa/Monrovia",
+                                        "Africa/Maseru",
+                                        "Europe/Vilnius",
+                                        "Europe/Luxembourg",
+                                        "Europe/Riga",
+                                        "Africa/Tripoli",
+                                        "Africa/Casablanca",
+                                        "Europe/Monaco",
+                                        "Europe/Chisinau",
+                                        "Europe/Podgorica",
+                                        "America/Marigot",
+                                        "Indian/Antananarivo",
+                                        "Pacific/Majuro",
+                                        "Pacific/Kwajalein",
+                                        "Europe/Skopje",
+                                        "Africa/Bamako",
+                                        "Asia/Rangoon",
+                                        "Asia/Ulaanbaatar",
+                                        "Asia/Hovd",
+                                        "Asia/Choibalsan",
+                                        "Asia/Macau",
+                                        "Pacific/Saipan",
+                                        "America/Martinique",
+                                        "Africa/Nouakchott",
+                                        "America/Montserrat",
+                                        "Europe/Malta",
+                                        "Indian/Mauritius",
+                                        "Indian/Maldives",
+                                        "Africa/Blantyre",
+                                        "America/Mexico_City",
+                                        "America/Cancun",
+                                        "America/Merida",
+                                        "America/Monterrey",
+                                        "America/Matamoros",
+                                        "America/Mazatlan",
+                                        "America/Chihuahua",
+                                        "America/Ojinaga",
+                                        "America/Hermosillo",
+                                        "America/Tijuana",
+                                        "America/Santa_Isabel",
+                                        "America/Bahia_Banderas",
+                                        "Asia/Kuala_Lumpur",
+                                        "Asia/Kuching",
+                                        "Africa/Maputo",
+                                        "Africa/Windhoek",
+                                        "Pacific/Noumea",
+                                        "Africa/Niamey",
+                                        "Pacific/Norfolk",
+                                        "Africa/Lagos",
+                                        "America/Managua",
+                                        "Europe/Amsterdam",
+                                        "Europe/Oslo",
+                                        "Asia/Kathmandu",
+                                        "Pacific/Nauru",
+                                        "Pacific/Niue",
+                                        "Pacific/Auckland",
+                                        "Pacific/Chatham",
+                                        "Asia/Muscat",
+                                        "America/Panama",
+                                        "America/Lima",
+                                        "Pacific/Tahiti",
+                                        "Pacific/Marquesas",
+                                        "Pacific/Gambier",
+                                        "Pacific/Port_Moresby",
+                                        "Asia/Manila",
+                                        "Asia/Karachi",
+                                        "Europe/Warsaw",
+                                        "America/Miquelon",
+                                        "Pacific/Pitcairn",
+                                        "America/Puerto_Rico",
+                                        "Asia/Gaza",
+                                        "Asia/Hebron",
+                                        "Europe/Lisbon",
+                                        "Atlantic/Madeira",
+                                        "Atlantic/Azores",
+                                        "Pacific/Palau",
+                                        "America/Asuncion",
+                                        "Asia/Qatar",
+                                        "Indian/Reunion",
+                                        "Europe/Bucharest",
+                                        "Europe/Belgrade",
+                                        "Europe/Kaliningrad",
+                                        "Europe/Moscow",
+                                        "Europe/Volgograd",
+                                        "Europe/Samara",
+                                        "Asia/Yekaterinburg",
+                                        "Asia/Omsk",
+                                        "Asia/Novosibirsk",
+                                        "Asia/Novokuznetsk",
+                                        "Asia/Krasnoyarsk",
+                                        "Asia/Irkutsk",
+                                        "Asia/Yakutsk",
+                                        "Asia/Khandyga",
+                                        "Asia/Vladivostok",
+                                        "Asia/Sakhalin",
+                                        "Asia/Ust-Nera",
+                                        "Asia/Magadan",
+                                        "Asia/Kamchatka",
+                                        "Asia/Anadyr",
+                                        "Africa/Kigali",
+                                        "Asia/Riyadh",
+                                        "Pacific/Guadalcanal",
+                                        "Indian/Mahe",
+                                        "Africa/Khartoum",
+                                        "Europe/Stockholm",
+                                        "Asia/Singapore",
+                                        "Atlantic/St_Helena",
+                                        "Europe/Ljubljana",
+                                        "Arctic/Longyearbyen",
+                                        "Europe/Bratislava",
+                                        "Africa/Freetown",
+                                        "Europe/San_Marino",
+                                        "Africa/Dakar",
+                                        "Africa/Mogadishu",
+                                        "America/Paramaribo",
+                                        "Africa/Juba",
+                                        "Africa/Sao_Tome",
+                                        "America/El_Salvador",
+                                        "America/Lower_Princes",
+                                        "Asia/Damascus",
+                                        "Africa/Mbabane",
+                                        "America/Grand_Turk",
+                                        "Africa/Ndjamena",
+                                        "Indian/Kerguelen",
+                                        "Africa/Lome",
+                                        "Asia/Bangkok",
+                                        "Asia/Dushanbe",
+                                        "Pacific/Fakaofo",
+                                        "Asia/Dili",
+                                        "Asia/Ashgabat",
+                                        "Africa/Tunis",
+                                        "Pacific/Tongatapu",
+                                        "Europe/Istanbul",
+                                        "America/Port_of_Spain",
+                                        "Pacific/Funafuti",
+                                        "Asia/Taipei",
+                                        "Africa/Dar_es_Salaam",
+                                        "Europe/Kiev",
+                                        "Europe/Uzhgorod",
+                                        "Europe/Zaporozhye",
+                                        "Europe/Simferopol",
+                                        "Africa/Kampala",
+                                        "Pacific/Johnston",
+                                        "Pacific/Midway",
+                                        "Pacific/Wake",
+                                        "America/New_York",
+                                        "America/Detroit",
+                                        "America/Kentucky/Louisville",
+                                        "America/Kentucky/Monticello",
+                                        "America/Indiana/Indianapolis",
+                                        "America/Indiana/Vincennes",
+                                        "America/Indiana/Winamac",
+                                        "America/Indiana/Marengo",
+                                        "America/Indiana/Petersburg",
+                                        "America/Indiana/Vevay",
+                                        "America/Chicago",
+                                        "America/Indiana/Tell_City",
+                                        "America/Indiana/Knox",
+                                        "America/Menominee",
+                                        "America/North_Dakota/Center",
+                                        "America/North_Dakota/New_Salem",
+                                        "America/North_Dakota/Beulah",
+                                        "America/Denver",
+                                        "America/Boise",
+                                        "America/Shiprock",
+                                        "America/Phoenix",
+                                        "America/Los_Angeles",
+                                        "America/Anchorage",
+                                        "America/Juneau",
+                                        "America/Sitka",
+                                        "America/Yakutat",
+                                        "America/Nome",
+                                        "America/Adak",
+                                        "America/Metlakatla",
+                                        "Pacific/Honolulu",
+                                        "America/Montevideo",
+                                        "Asia/Samarkand",
+                                        "Asia/Tashkent",
+                                        "Europe/Vatican",
+                                        "America/St_Vincent",
+                                        "America/Caracas",
+                                        "America/Tortola",
+                                        "America/St_Thomas",
+                                        "Asia/Ho_Chi_Minh",
+                                        "Pacific/Efate",
+                                        "Pacific/Wallis",
+                                        "Pacific/Apia",
+                                        "Asia/Aden",
+                                        "Indian/Mayotte",
+                                        "Africa/Johannesburg",
+                                        "Africa/Lusaka",
+                                        "Africa/Harare",
+                                        "Etc/GMT-14",
+                                        "Etc/GMT-13",
+                                        "Etc/GMT-12",
+                                        "Etc/GMT-11",
+                                        "Etc/GMT-10",
+                                        "Etc/GMT-9",
+                                        "Etc/GMT-8",
+                                        "Etc/GMT-7",
+                                        "Etc/GMT-6",
+                                        "Etc/GMT-5",
+                                        "Etc/GMT-4",
+                                        "Etc/GMT-3",
+                                        "Etc/GMT-2",
+                                        "Etc/GMT-1",
+                                        "Etc/GMT+0",
+                                        "Etc/GMT+1",
+                                        "Etc/GMT+2",
+                                        "Etc/GMT+3",
+                                        "Etc/GMT+4",
+                                        "Etc/GMT+5",
+                                        "Etc/GMT+6",
+                                        "Etc/GMT+7",
+                                        "Etc/GMT+8",
+                                        "Etc/GMT+9",
+                                        "Etc/GMT+10",
+                                        "Etc/GMT+11",
+                                        "Etc/GMT+12"
+                                    ],
+                                    "type": "string",
+                                    "title": "Timezone",
+                                    "default": "UTC",
+                                    "propertyOrder": 3
+                                },
+                                "interval": {
+                                    "type": "integer",
+                                    "title": "Interval (days since)",
+                                    "default": 0,
+                                    "description": "Set to 0 if you want to download fixed date range",
+                                    "propertyOrder": 4
+                                }
+                            }
+                        },
+                        "ads": {
+                            "type": "array",
+                            "propertyOrder": 2,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "adsources": {
+                            "type": "array",
+                            "propertyOrder": 3,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "advertisers": {
+                            "type": "array",
+                            "propertyOrder": 4,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "ad_sources": {
+                            "type": "array",
+                            "propertyOrder": 5,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "ad_status": {
+                            "type": "array",
+                            "propertyOrder": 6,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "browser": {
+                            "type": "array",
+                            "propertyOrder": 7,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "connection_buy_type": {
+                            "type": "array",
+                            "propertyOrder": 8,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "country": {
+                            "type": "array",
+                            "propertyOrder": 9,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
 
-						"creatives": {
-							"type": "array",
-							"propertyOrder": 10,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"demand_source": {
-							"type": "array",
-							"propertyOrder": 11,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"device": {
-							"type": "array",
-							"propertyOrder": 12,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"formats": {
-							"type": "array",
-							"propertyOrder": 13,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"insertions": {
-							"type": "array",
-							"propertyOrder": 14,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"insertion_status": {
-							"type": "array",
-							"propertyOrder": 15,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"operating_system": {
-							"type": "array",
-							"propertyOrder": 16,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"packs": {
-							"type": "array",
-							"propertyOrder": 17,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"page": {
-							"type": "array",
-							"propertyOrder": 18,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"placements": {
-							"type": "array",
-							"propertyOrder": 19,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"placement_status": {
-							"type": "array",
-							"propertyOrder": 20,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"publishers": {
-							"type": "array",
-							"propertyOrder": 21,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"scenarios": {
-							"type": "array",
-							"propertyOrder": 22,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						},
-						"tags": {
-							"type": "array",
-							"propertyOrder": 23,
-							"items": {
-								"type": "string"
-							},
-							"default": []
-						},
-						"websites": {
-							"type": "array",
-							"propertyOrder": 24,
-							"items": {
-								"type": "integer"
-							},
-							"default": []
-						}
-					}
-				},
-				"dimensions": {
-					"type": "array",
-					"items": {
-						"enum": [
-							"ad",
-							"ad_end",
-							"ad_is_moat",
-							"ad_is_test",
-							"ad_start",
-							"ad_type",
-							"ad_volume_event",
-							"ad_volume_value",
-							"adsource",
-							"advertiser",
-							"advertiser_name",
-							"agency",
-							"agency_name",
-							"browser",
-							"connection",
-							"connection_is_moat",
-							"connection_type",
-							"country",
-							"country_code",
-							"country_continent",
-							"creative",
-							"day",
-							"demand",
-							"demand_category",
-							"demand_id",
-							"demand_name",
-							"demand_rule",
-							"demand_rule_id",
-							"demand_rule_is_bluekai",
-							"demand_rule_is_emetriq",
-							"demand_rule_is_exelate",
-							"demand_rule_is_grapeshot",
-							"demand_rule_is_nuggad",
-							"demand_source",
-							"demand_start_mode",
-							"demand_type",
-							"device",
-							"format",
-							"format_creative_type",
-							"format_creative_type_family",
-							"format_position",
-							"format_size",
-							"hb_ad_unit_code",
-							"hb_provider",
-							"hour",
-							"insertion_budget",
-							"insertion_end_date",
-							"insertion_is_free",
-							"insertion_price_advertiser",
-							"insertion_price_advertiser_event",
-							"insertion_price_publisher",
-							"insertion_price_publisher_cpm",
-							"insertion_price_publisher_currency",
-							"insertion_price_publisher_event",
-							"insertion_start_date",
-							"insertion_type",
-							"insertion_volume_event",
-							"insertion_volume_value",
-							"month",
-							"operating_system",
-							"pack",
-							"page",
-							"placement",
-							"publisher",
-							"quarter",
-							"scenario",
-							"scenario_id",
-							"scenario_name",
-							"semester",
-							"studio_canvas",
-							"studio_creative_id",
-							"studio_segment",
-							"uv",
-							"website",
-							"website_domain",
-							"week",
-							"year"
-						],
-						"type": "string"
-					},
-					"minItems": 1,
-					"title": "Dimensions",
-					"description": "List of dimensions to query by. Note that some dimensions and metrics cannot be combined.",
-					"propertyOrder": 1
-				},
-				"metrics": {
-					"type": "array",
-					"items": {
-						"enum": [
-							"ad",
-							"adAvailable-success",
-							"adCall",
-							"adNotAvailable-blockedSite-doubleVerify",
-							"adNotAvailable-ivt-doubleVerify",
-							"adNotAvailable-ivt-tag",
-							"advertiser_billable_volume",
-							"callJS",
-							"click",
-							"Click-call-button",
-							"Click-replay",
-							"ClickTracking",
-							"Close",
-							"compatibility",
-							"complete",
-							"demand-rate",
-							"dsp_response_bid",
-							"dsp_response_declined",
-							"dsp_response_error",
-							"dsp_response_filtered",
-							"dsp_response-rate",
-							"emptyPage",
-							"Engage format interaction metrics",
-							"errorVast",
-							"exit-fullscreen",
-							"firstQuartile",
-							"focusOut",
-							"fullscreen",
-							"impression",
-							"income",
-							"incompatibility-browser type",
-							"incompatibility-context",
-							"incompatibility-format",
-							"incompatibility-video",
-							"incompatibility-x",
-							"integration-rate",
-							"midpoint",
-							"mute",
-							"noAd",
-							"noAd-badResponse",
-							"noAd-details",
-							"noAd-exitPage",
-							"noAd-networkError",
-							"noAd-notFilled",
-							"noAd-parseTimeout",
-							"noAd-serverError",
-							"noAd-settingsError",
-							"noAd-vastError",
-							"noAdCall",
-							"noSlot",
-							"noSlot-avoid",
-							"noSlot-BTF",
-							"noSlot-content",
-							"noSlot-details",
-							"noSlot-DOM",
-							"noSlot-filter",
-							"noSlot-minimum",
-							"noSlot-minimumBelow",
-							"noSlot-MinSlot",
-							"noSlot-position",
-							"noSlot-selector",
-							"noSlot-size",
-							"open",
-							"open-x",
-							"pageAvailable",
-							"pageCall",
-							"passback",
-							"passback-integration",
-							"passback-noAd",
-							"pause",
-							"placementCall",
-							"placementCapping",
-							"programmatic-delivery-rate",
-							"programmatic-error-rate",
-							"progress-x",
-							"publisher_billable_volume",
-							"publisher-perf-rate",
-							"Reporting metric",
-							"resume",
-							"scroll-rate",
-							"slot_available",
-							"slotAvailable",
-							"ssp_auction",
-							"ssp_auctionwon",
-							"ssp_bidrequest",
-							"ssp_timeout",
-							"ssp_win-rate",
-							"start",
-							"teads_billing",
-							"thirdQuartile",
-							"unmute",
-							"vastError",
-							"visible"
-						],
-						"type": "string"
-					},
-					"minItems": 1,
-					"title": "Metrics",
-					"description": "List of metrics to return. Note that some dimensions and metrics cannot be combined..",
-					"propertyOrder": 2
-				},
-				"emails": {
-					"type": "array",
-					"items": {
-						"type": "string"
-					},
-					"minItems": 0,
-					"default": [],
-					"title": "Emails",
-					"description": "Filter by email",
-					"propertyOrder": 4
-				},
-				"format": {
-					"enum": [
-						"csv"
-					],
-					"type": "string",
-					"title": "Output format",
-					"default": "csv",
-					"description": "output format.",
-					"propertyOrder": 5
-				}
-			}
-		},
-		"report_name": {
-			"type": "string",
-			"title": "Report name",
-			"default": "teads",
-			"description": "Table name to be exported to storage",
-			"propertyOrder": 2
-		},
-		"#auth": {
-			"type": "string",
-			"title": "Token",
-			"description": "Paste the access token.",
-			"propertyOrder": 1
-		}
-	}
+                        "creatives": {
+                            "type": "array",
+                            "propertyOrder": 10,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "demand_source": {
+                            "type": "array",
+                            "propertyOrder": 11,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "device": {
+                            "type": "array",
+                            "propertyOrder": 12,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "formats": {
+                            "type": "array",
+                            "propertyOrder": 13,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "insertions": {
+                            "type": "array",
+                            "propertyOrder": 14,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "insertion_status": {
+                            "type": "array",
+                            "propertyOrder": 15,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "operating_system": {
+                            "type": "array",
+                            "propertyOrder": 16,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "packs": {
+                            "type": "array",
+                            "propertyOrder": 17,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "page": {
+                            "type": "array",
+                            "propertyOrder": 18,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "placements": {
+                            "type": "array",
+                            "propertyOrder": 19,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "placement_status": {
+                            "type": "array",
+                            "propertyOrder": 20,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "publishers": {
+                            "type": "array",
+                            "propertyOrder": 21,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "scenarios": {
+                            "type": "array",
+                            "propertyOrder": 22,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        },
+                        "tags": {
+                            "type": "array",
+                            "propertyOrder": 23,
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "websites": {
+                            "type": "array",
+                            "propertyOrder": 24,
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": []
+                        }
+                    }
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "ad",
+                            "ad_end",
+                            "ad_is_moat",
+                            "ad_is_test",
+                            "ad_start",
+                            "ad_type",
+                            "ad_volume_event",
+                            "ad_volume_value",
+                            "adsource",
+                            "advertiser",
+                            "advertiser_name",
+                            "agency",
+                            "agency_name",
+                            "browser",
+                            "connection",
+                            "connection_is_moat",
+                            "connection_type",
+                            "country",
+                            "country_code",
+                            "country_continent",
+                            "creative",
+                            "day",
+                            "demand",
+                            "demand_category",
+                            "demand_id",
+                            "demand_name",
+                            "demand_rule",
+                            "demand_rule_id",
+                            "demand_rule_is_bluekai",
+                            "demand_rule_is_emetriq",
+                            "demand_rule_is_exelate",
+                            "demand_rule_is_grapeshot",
+                            "demand_rule_is_nuggad",
+                            "demand_source",
+                            "demand_start_mode",
+                            "demand_type",
+                            "device",
+                            "format",
+                            "format_creative_type",
+                            "format_creative_type_family",
+                            "format_position",
+                            "format_size",
+                            "hb_ad_unit_code",
+                            "hb_provider",
+                            "hour",
+                            "insertion_budget",
+                            "insertion_end_date",
+                            "insertion_is_free",
+                            "insertion_price_advertiser",
+                            "insertion_price_advertiser_event",
+                            "insertion_price_publisher",
+                            "insertion_price_publisher_cpm",
+                            "insertion_price_publisher_currency",
+                            "insertion_price_publisher_event",
+                            "insertion_start_date",
+                            "insertion_type",
+                            "insertion_volume_event",
+                            "insertion_volume_value",
+                            "month",
+                            "operating_system",
+                            "pack",
+                            "page",
+                            "placement",
+                            "publisher",
+                            "quarter",
+                            "scenario",
+                            "scenario_id",
+                            "scenario_name",
+                            "semester",
+                            "studio_canvas",
+                            "studio_creative_id",
+                            "studio_segment",
+                            "uv",
+                            "website",
+                            "website_domain",
+                            "week",
+                            "year"
+                        ],
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "title": "Dimensions",
+                    "description": "List of dimensions to query by. Note that some dimensions and metrics cannot be combined.",
+                    "propertyOrder": 1
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "ad",
+                            "adAvailable-success",
+                            "adCall",
+                            "adNotAvailable-blockedSite-doubleVerify",
+                            "adNotAvailable-ivt-doubleVerify",
+                            "adNotAvailable-ivt-tag",
+                            "advertiser_billable_volume",
+                            "callJS",
+                            "click",
+                            "Click-call-button",
+                            "Click-replay",
+                            "ClickTracking",
+                            "Close",
+                            "compatibility",
+                            "complete",
+                            "demand-rate",
+                            "dsp_response_bid",
+                            "dsp_response_declined",
+                            "dsp_response_error",
+                            "dsp_response_filtered",
+                            "dsp_response-rate",
+                            "emptyPage",
+                            "Engage format interaction metrics",
+                            "errorVast",
+                            "exit-fullscreen",
+                            "firstQuartile",
+                            "focusOut",
+                            "fullscreen",
+                            "impression",
+                            "income",
+                            "incompatibility-browser type",
+                            "incompatibility-context",
+                            "incompatibility-format",
+                            "incompatibility-video",
+                            "incompatibility-x",
+                            "integration-rate",
+                            "midpoint",
+                            "mute",
+                            "noAd",
+                            "noAd-badResponse",
+                            "noAd-details",
+                            "noAd-exitPage",
+                            "noAd-networkError",
+                            "noAd-notFilled",
+                            "noAd-parseTimeout",
+                            "noAd-serverError",
+                            "noAd-settingsError",
+                            "noAd-vastError",
+                            "noAdCall",
+                            "noSlot",
+                            "noSlot-avoid",
+                            "noSlot-BTF",
+                            "noSlot-content",
+                            "noSlot-details",
+                            "noSlot-DOM",
+                            "noSlot-filter",
+                            "noSlot-minimum",
+                            "noSlot-minimumBelow",
+                            "noSlot-MinSlot",
+                            "noSlot-position",
+                            "noSlot-selector",
+                            "noSlot-size",
+                            "open",
+                            "open-x",
+                            "pageAvailable",
+                            "pageCall",
+                            "passback",
+                            "passback-integration",
+                            "passback-noAd",
+                            "pause",
+                            "placementCall",
+                            "placementCapping",
+                            "programmatic-delivery-rate",
+                            "programmatic-error-rate",
+                            "progress-x",
+                            "publisher_billable_volume",
+                            "publisher-perf-rate",
+                            "Reporting metric",
+                            "resume",
+                            "scroll-rate",
+                            "slot_available",
+                            "slotAvailable",
+                            "ssp_auction",
+                            "ssp_auctionwon",
+                            "ssp_bidrequest",
+                            "ssp_timeout",
+                            "ssp_win-rate",
+                            "start",
+                            "teads_billing",
+                            "thirdQuartile",
+                            "unmute",
+                            "vastError",
+                            "visible"
+                        ],
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "title": "Metrics",
+                    "description": "List of metrics to return. Note that some dimensions and metrics cannot be combined..",
+                    "propertyOrder": 2
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 0,
+                    "default": [],
+                    "title": "Emails",
+                    "description": "Filter by email",
+                    "propertyOrder": 4
+                },
+                "format": {
+                    "enum": ["csv"],
+                    "type": "string",
+                    "title": "Output format",
+                    "default": "csv",
+                    "description": "output format.",
+                    "propertyOrder": 5
+                }
+            }
+        },
+        "report_name": {
+            "type": "string",
+            "title": "Report name",
+            "default": "teads",
+            "description": "Table name to be exported to storage",
+            "propertyOrder": 2
+        },
+        "#auth": {
+            "type": "string",
+            "title": "Token",
+            "description": "Paste the access token.",
+            "propertyOrder": 1
+        }
+    }
 }

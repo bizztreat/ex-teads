@@ -72,8 +72,8 @@ def main():
         if intervaled:
             if current_date.strftime("%Y-%m-%d") >= end_date.strftime("%Y-%m-%d"):
                 break
-            conf["report_config"]["filters"]["date"]["start"] = current_date.replace(hour=0, minute=0, second=0).strftime("%Y-%m-%dT%H:%M:%S+00:00")
-            conf["report_config"]["filters"]["date"]["end"] = current_date.replace(hour=23, minute=59, second=59).strftime("%Y-%m-%dT%H:%M:%S+00:00")
+            conf["report_config"]["filters"]["date"]["start"] = current_date.replace(hour=0, minute=0, second=0).strftime("%Y-%m-%dT%H:%M:%S")
+            conf["report_config"]["filters"]["date"]["end"] = current_date.replace(hour=23, minute=59, second=59).strftime("%Y-%m-%dT%H:%M:%S")
             current_date = current_date + timedelta(days=1)
             print("Running interval report for date {}".format(conf["report_config"]["filters"]["date"]["start"]))
         payload = json.dumps(conf["report_config"])
