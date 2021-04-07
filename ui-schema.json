@@ -451,6 +451,7 @@
 							"programmatic-error-rate",
 							"progress-x",
 							"publisher_billable_volume",
+							"publisher_sold_impression",
 							"publisher-perf-rate",
 							"Reporting metric",
 							"resume",
